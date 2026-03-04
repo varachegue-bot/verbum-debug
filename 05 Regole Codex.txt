@@ -1,0 +1,13 @@
+Quando hai finito l’analisi e devi produrre il resoconto finale:
+
+1) Genera il resoconto in testo semplice (markdown va bene).
+2) Emetti UN SOLO comando PowerShell che salva ESATTAMENTE quel testo nel file:
+   C:\Users\Alessio\Desktop\Lavoro_con_ChatGPT\Per ChatGPT.txt
+   (sovrascrivendo il file)
+
+Vincoli:
+- NON modificare file di progetto.
+- NON creare altri file.
+- SOLO il comando PowerShell di salvataggio + il contenuto del resoconto.
+
+Suggerimento tecnico: usa un here-string @' ... '@ con Set-Content -Encoding UTF8.

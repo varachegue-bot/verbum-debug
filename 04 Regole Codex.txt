@@ -1,0 +1,8 @@
+Prima di qualsiasi modifica:
+1) Leggi AGENT_MANUAL_VERBUM.md
+2) Consideralo vincolo architetturale non negoziabile
+3) Se una richiesta viola il manuale, fermati e segnalalo
+4) Non fare refactor non richiesti
+5) Lavora solo sui file esplicitamente coinvolti
+6) Dopo ogni patch: build assembleDebug e mostra diff prima del commit
+Conferma di aver compreso.

@@ -1,0 +1,17 @@
+CONTESTO
+Stai lavorando sul progetto Android Verbum in C:\App_android\EnglishLearningApp, branch git: test_finale.
+Regole:
+- Non introdurre fallback/stub in nessuna parte dell’app.
+- Lavora in modo deterministico: ogni fix deve avere build verde.
+- Dopo ogni modifica: mostra diff, poi esegui build.
+- Commit atomici con messaggio chiaro.
+- Non toccare backend: solo lato app.
+- Obiettivo corrente: eliminare “Caricamento lezione” bloccato. La UI deve passare a Ready quando arriva l’evento SSE done (o a Error se non arriva entro timeout già previsto).
+
+TASK
+1) Trova dove viene gestito lo stream lesson CEFR (VerbumBackendLessonProvider, CefrLessonViewModel, UI).
+2) Verifica che l’evento SSE "done" venga ricevuto e propagato fino allo stato UI.
+3) Se lo stato non transita a Ready su done, implementa la transizione corretta (senza fallback), mantenendo watchdog timeout.
+4) Esegui: gradlew assembleDebug testDebug.
+5) Stampa: file modificati + diff + output build.
+6) Fai commit con messaggio: "Fix CEFR loading stuck on SSE done".

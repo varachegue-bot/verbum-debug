@@ -1,0 +1,4 @@
+Prima di qualsiasi modifica:
+1) Leggi AGENT_MANUAL_VERBUM.md
+2) Consideralo vincolo architetturale non negoziabile
+3) Se una richiesta viola il manuale, fermati e segnala

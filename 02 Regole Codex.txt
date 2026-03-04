@@ -1,0 +1,23 @@
+Crea un setup professionale “agent-ready” per Verbum nel progetto locale, SOLO lato app.
+
+1) Crea questi file nuovi in root:
+- AGENT_RULES_VERBUM.md (vincoli architetturali non negoziabili)
+- AGENT_WORKFLOW_VERBUM.md (procedura operativa standard: scan→patch→build→report→commit)
+- AGENT_DEBUG_PLAYBOOK_VERBUM.md (debug runtime: logcat tags, punti di aggancio, checklist “Loading→Ready/Error”, SSE done, timeout)
+
+2) Le regole da includere (riassunte, ma scritte in modo normativo e verificabile):
+- Vietati fallback/stub ovunque: se manca dato → Error esplicito, mai contenuti inventati.
+- CEFR loading deterministico: ogni caricamento deve terminare in Ready o Error; no loading infinito.
+- Dedup consentita SOLO se stato è Ready; vietato deduplicare se Loading.
+- SSE lesson: gestire eventi status/chunk/done/error; su done: transizione a Ready se contenuto valido, altrimenti Error.
+- Watchdog timeout obbligatorio lato client per interrompere Loading e forzare Error.
+- Non toccare backend in questo setup.
+- Ogni patch: diff + gradlew assembleDebug testDebug + commit atomico.
+- Branch di lavoro: test_finale (non cambiare branch).
+
+3) Aggiungi anche una cartella `.codex/` se utile con un README o config testuale (se supportato dalla CLI) che dica all’agente di leggere prima i 3 file.
+
+4) Esegui `git status` per confermare nuovi file, poi fai commit con messaggio:
+"Add Verbum agent rules and workflow"
+
+Output richiesto: elenco file creati + diff + esito commit.
